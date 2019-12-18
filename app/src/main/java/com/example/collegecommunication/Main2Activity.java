@@ -8,9 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity {
-EditText regno,password,repassword,email;
+EditText regno,password,repassword,mobno,email;
 Button register;
 TextView login;
     @Override
@@ -21,16 +31,53 @@ TextView login;
         regno=findViewById(R.id.editText);
         password=findViewById(R.id.editText2);
         repassword=findViewById(R.id.editText3);
-        email=findViewById(R.id.editText4);
+        mobno=findViewById(R.id.editText4);
+        email=findViewById(R.id.editText6);
         register=findViewById(R.id.button);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main2Activity.this,Main3Activity.class);
+                Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
                 startActivity(intent);
+                                if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()) || (repassword.getText().toString().isEmpty()) || (mobno.getText().toString().isEmpty()) || (email.getText().toString().isEmpty()))
+                {
+                    Toast.makeText(Main2Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
+                }
+                 else
+                {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://competent-decision.000webhostapp.com/Registration.php",
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
+
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+
+                                }
+                            }){
+                        @Override
+                        protected Map<String,String>getParams()throws
+                                AuthFailureError{
+                            Map<String,String>Params=new HashMap<>();
+                            Params.put("regno",regno.getText().toString());
+                            Params.put("password",password.getText().toString());
+                            Params.put("mobno",mobno.getText().toString());
+
+
+                        }
+                    }
+
+                }
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
+
+
+
+    login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Main2Activity.this,Main3Activity.class);
