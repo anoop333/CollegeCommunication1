@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#090000"
+    tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="181dp"
-        android:layout_height="143dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="340dp"
+        android:id="@+id/imageView"
+        android:layout_width="117dp"
+        android:layout_height="108dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713"
+        app:layout_constraintVertical_bias="0.505"
         app:srcCompat="@mipmap/ic_launcher_round" />
 </androidx.constraintlayout.widget.ConstraintLayout>

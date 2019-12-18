@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,49 +33,62 @@ TextView login;
         regno=findViewById(R.id.editText);
         password=findViewById(R.id.editText2);
         repassword=findViewById(R.id.editText3);
-        mobno=findViewById(R.id.editText4);
-        email=findViewById(R.id.editText6);
         register=findViewById(R.id.button);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                startActivity(intent);
-                                if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()) || (repassword.getText().toString().isEmpty()) || (mobno.getText().toString().isEmpty()) || (email.getText().toString().isEmpty()))
+
+                                if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()) || (repassword.getText().toString().isEmpty()))
                 {
                     Toast.makeText(Main2Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
                 }
-                 else
-                {
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://competent-decision.000webhostapp.com/Registration.php",
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
 
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
+                 else {
 
-                                }
-                            }){
-                        @Override
-                        protected Map<String,String>getParams()throws
-                                AuthFailureError{
-                            Map<String,String>Params=new HashMap<>();
-                            Params.put("regno",regno.getText().toString());
-                            Params.put("password",password.getText().toString());
-                            Params.put("mobno",mobno.getText().toString());
+                                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anoopsuvarnan1.000webhostapp.com/anannya.php",
+                                            new Response.Listener<String>() {
+                                                @Override
+                                                public void onResponse(String response) {
+                                                    Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
+if (response.equals("success"))
+{
+    Intent intent=new Intent(Main2Activity.this,Main3Activity.class);
+    startActivity(intent);
+}
+else {
+    Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
+}
+                                                }
+                                            },
+                                            new Response.ErrorListener() {
+                                                @Override
+                                                public void onErrorResponse(VolleyError error) {
+
+                                                }
+                                            }) {
+                                        @Override
+                                        protected Map<String, String> getParams() throws
+                                                AuthFailureError {
+                                            Map<String, String> Params = new HashMap<>();
+                                            Params.put("regno", regno.getText().toString());
+                                            Params.put("password", password.getText().toString());
 
 
-                        }
-                    }
+
+
+                                            return Params;
+                                        }
+                                    };
+
+
+                        RequestQueue requestQueue = Volley.newRequestQueue(Main2Activity.this);
+requestQueue.add(stringRequest);
+
 
                 }
             }
         });
+
 
 
 
@@ -84,5 +99,45 @@ TextView login;
                 startActivity(intent);
             }
         });
+    }
+    public void id()
+    {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anoopsuvarnan1.000webhostapp.com/anannya1.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
+                        if (response.equals("valid"))
+                        {
+                            Toast.makeText(Main2Activity.this, "Id", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(Main2Activity.this, "Incorrect Register Number", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws
+                    AuthFailureError {
+                Map<String, String> Params = new HashMap<>();
+                Params.put("regno", regno.getText().toString());
+
+
+
+
+
+                return Params;
+            }
+        };
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(Main2Activity.this);
+        requestQueue.add(stringRequest);
     }
 }
