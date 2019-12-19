@@ -1,4 +1,4 @@
- package com.example.collegecommunication;
+package com.example.collegecommunication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,12 +32,13 @@ TextView forgotpwd,reg;
         reg=findViewById(R.id.textView7);
         forgotpwd=findViewById(R.id.textView5);
         reg=findViewById(R.id.textView7);
-        regno=findViewById(R.id.editText5);
+        regno =findViewById(R.id.editText5);
         password=findViewById(R.id.editText7);
         login=findViewById(R.id.button2);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()))
                 {
                     Toast.makeText(Main3Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
@@ -57,7 +58,7 @@ TextView forgotpwd,reg;
                                         startActivity(in);
                                     }
                                     else {
-                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number/Password-", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number or Password", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             },
