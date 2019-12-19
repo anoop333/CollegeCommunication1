@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main5Activity">
+    android:background="#0D041D"
+    tools:context=".Main5Activity" >
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="196dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="62dp"
+        android:layout_width="184dp"
+        android:layout_height="36dp"
         android:text="FORGOT PASSWORD"
-        android:textColor="#0C0000"
+        android:textColor="#C2185B"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.064" />
 </androidx.constraintlayout.widget.ConstraintLayout>

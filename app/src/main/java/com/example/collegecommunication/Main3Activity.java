@@ -53,13 +53,13 @@ TextView forgotpwd,reg;
                                     Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
                                     if (response.equals("valid"))
                                     {
-                                       //
+
                                         // Toast.makeText(Main3Activity.this, "Id", Toast.LENGTH_LONG).show();
                                         Intent in= new Intent(Main3Activity.this,Main4Activity.class);
                                         startActivity(in);
                                     }
                                     else {
-                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Main3Activity.this, "Invalid Register Number", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             },
