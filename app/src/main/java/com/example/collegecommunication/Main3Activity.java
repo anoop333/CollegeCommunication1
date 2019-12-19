@@ -79,8 +79,7 @@ Params.put("password",password.getText().toString());
 
                             return Params;
                         }
-                    };
-
+                    };       .
 
                     RequestQueue requestQueue = Volley.newRequestQueue(Main3Activity.this);
                     requestQueue.add(stringRequest);
