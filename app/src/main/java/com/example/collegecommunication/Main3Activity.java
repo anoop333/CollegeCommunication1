@@ -32,14 +32,13 @@ TextView forgotpwd,reg;
         reg=findViewById(R.id.textView7);
         forgotpwd=findViewById(R.id.textView5);
         reg=findViewById(R.id.textView7);
-        regno=findViewById(R.id.editText5);
+        regno =findViewById(R.id.editText5);
         password=findViewById(R.id.editText7);
         login=findViewById(R.id.button2);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main3Activity.this,Main4Activity.class);
-                startActivity(intent);
+
                 if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()))
                 {
                     Toast.makeText(Main3Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
@@ -50,16 +49,16 @@ TextView forgotpwd,reg;
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
+                                  //  Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
                                     if (response.equals("valid"))
                                     {
-
+                                       //
                                         // Toast.makeText(Main3Activity.this, "Id", Toast.LENGTH_LONG).show();
                                         Intent in= new Intent(Main3Activity.this,Main4Activity.class);
                                         startActivity(in);
                                     }
                                     else {
-                                        Toast.makeText(Main3Activity.this, "Invalid Register Number", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number or Password", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             },
