@@ -100,44 +100,5 @@ requestQueue.add(stringRequest);
             }
         });
     }
-    public void id()
-    {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anoopsuvarnan1.000webhostapp.com/anannya1.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
-                        if (response.equals("valid"))
-                        {
-                            Toast.makeText(Main2Activity.this, "Id", Toast.LENGTH_LONG).show();
-                        }
-                        else {
-                            Toast.makeText(Main2Activity.this, "Incorrect Register Number", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
 
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws
-                    AuthFailureError {
-                Map<String, String> Params = new HashMap<>();
-                Params.put("regno", regno.getText().toString());
-
-
-
-
-
-                return Params;
-            }
-        };
-
-
-        RequestQueue requestQueue = Volley.newRequestQueue(Main2Activity.this);
-        requestQueue.add(stringRequest);
-    }
 }

@@ -1,4 +1,4 @@
-package com.example.collegecommunication;
+ package com.example.collegecommunication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,8 +38,6 @@ TextView forgotpwd,reg;
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main3Activity.this,Main4Activity.class);
-                startActivity(intent);
                 if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()))
                 {
                     Toast.makeText(Main3Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
@@ -50,7 +48,7 @@ TextView forgotpwd,reg;
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
+                                  //  Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
                                     if (response.equals("valid"))
                                     {
                                        //
@@ -59,7 +57,7 @@ TextView forgotpwd,reg;
                                         startActivity(in);
                                     }
                                     else {
-                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number/Password-", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             },
