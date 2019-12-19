@@ -54,7 +54,7 @@ TextView forgotpwd,reg;
                                     {
                                        //
                                         // Toast.makeText(Main3Activity.this, "Id", Toast.LENGTH_LONG).show();
-                                        Intent in= new Intent(Main3Activity.this,Main4Activity.class);
+                                        Intent in= new Intent(Main3Activity.this,Main6Activity.class);
                                         startActivity(in);
                                     }
                                     else {
@@ -80,7 +80,7 @@ Params.put("password",password.getText().toString());
 
                             return Params;
                         }
-                    };       .
+                    };
 
                     RequestQueue requestQueue = Volley.newRequestQueue(Main3Activity.this);
                     requestQueue.add(stringRequest);
