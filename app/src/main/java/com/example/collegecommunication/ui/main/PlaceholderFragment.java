@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -47,11 +48,20 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main6, container, false);
+        View root1=inflater.inflate(R.layout.fragment_main7,container,false);
+
         final TextView textView = root.findViewById(R.id.section_label);
+       // final TextView textView1 = root1.findViewById(R.id.section_label1);
+
         pageViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+                if(s.equals("Notification"))
+                {
+                    Toast.makeText(getContext(),"hiiii",Toast.LENGTH_SHORT).show();
+                }
+                //textView1.setText("hi");
             }
         });
         return root;

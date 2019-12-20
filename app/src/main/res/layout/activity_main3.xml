@@ -26,14 +26,15 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
         android:background="#D39806"
         android:text="LOGIN"
         android:textColor="#F5EEEE"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.565" />
 
     <TextView
         android:id="@+id/textView5"
@@ -78,35 +79,45 @@
 
     <EditText
         android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="219dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn"
         android:ems="10"
-        android:hint="Enter Register Number"
+        android:hint="  Enter Register Number"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#ECEBEB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <EditText
-        android:id="@+id/editText7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:id="@+id/editText4"
+        android:layout_width="219dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn"
         android:ems="10"
-        android:hint="Enter Password"
-        android:inputType="textPersonName"
+        android:hint="  Enter Password"
+        android:inputType="textPassword"
+        android:textAlignment="textStart"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="110dp"
+        android:layout_height="26dp"
+        android:buttonTint="@android:color/background_light"
+        android:text="Show Password"
+        android:textColor="#F1ECEC"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="346dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

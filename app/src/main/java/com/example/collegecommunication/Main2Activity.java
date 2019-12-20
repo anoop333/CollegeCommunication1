@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +29,7 @@ public class Main2Activity extends AppCompatActivity {
 EditText regno,password,repassword,mobno,email;
 Button register;
 TextView login;
+CheckBox ch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,23 @@ TextView login;
         password=findViewById(R.id.editText2);
         repassword=findViewById(R.id.editText3);
         register=findViewById(R.id.button);
+        ch=findViewById(R.id.checkBox);
+        ch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                    ch.setText("Hide password");
+
+                }
+                else {
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    ch.setText("Show Password");
+                }
+            }
+        });
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

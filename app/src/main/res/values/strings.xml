@@ -3,4 +3,6 @@
     <string name="title_activity_main6">Main6Activity</string>
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Notification</string>
+    <string name="tab_text_3">Private Post</string>
+
 </resources>
