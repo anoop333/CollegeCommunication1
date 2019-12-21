@@ -46,12 +46,14 @@ CheckBox ch;
                 if(b)
                 {
                     password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    repassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
                     ch.setText("Hide password");
 
                 }
                 else {
                     password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    repassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     ch.setText("Show Password");
                 }
             }

@@ -29,7 +29,8 @@ public class Main3Activity extends AppCompatActivity {
 EditText regno,password;
 Button login;
 TextView forgotpwd,reg;
-    CheckBox ch;
+CheckBox c;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,22 +41,27 @@ TextView forgotpwd,reg;
         regno =findViewById(R.id.editText5);
         password=findViewById(R.id.editText4);
         login=findViewById(R.id.button2);
-        ch=findViewById(R.id.checkBox);
-        ch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        c=findViewById(R.id.checkBox2);
+
+        c.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+            public void onCheckedChanged(CompoundButton buttonView, boolean  isChecked) {
+                if (isChecked)
                 {
                     password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                    ch.setText("Hide password");
+
+                    c.setText("Hide password");
 
                 }
-                else {
+                else
+                    {
                     password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    ch.setText("Show Password");
-                }
+                    c.setText("Show Password");
+                   }
             }
+
+
         });
         login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -58,7 +58,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginBottom="86dp"
         android:text="SIGN UP"
-        android:textColor="#791536"
+        android:textColor="#C2185B"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
