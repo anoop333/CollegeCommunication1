@@ -22,6 +22,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +34,7 @@ EditText regno,password;
 Button login;
 TextView forgotpwd,reg;
 CheckBox c;
-
+    String status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +81,34 @@ CheckBox c;
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
+                                  //  Toast.makeText(Main3Activity.this,response,Toast.LENGTH_SHORT).show();
+                                    try {
+                                        JSONArray jsonArray = new JSONArray(response);
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            JSONObject json_obj = jsonArray.getJSONObject(i);
+                                             status=json_obj.getString("status");
+//ba = json_obj.getString("balance");
+
+
+                                        }
+//Toast.makeText(Recharge.this, "your new balnce is "+ba, Toast.LENGTH_LONG).show();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+
                                   //  Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
-                                    if (response.equals("valid"))
+                                    if (status.equals("1"))
                                     {
                                        //
                                         // Toast.makeText(Main3Activity.this, "Id", Toast.LENGTH_LONG).show();
                                         Intent in= new Intent(Main3Activity.this,Main6Activity.class);
                                         startActivity(in);
+                                    }
+                                    else if(status.equals("2")) {
+                                        Toast.makeText(Main3Activity.this, "Admin", Toast.LENGTH_LONG).show();
+
                                     }
                                     else {
                                         Toast.makeText(Main3Activity.this, "Incorrect Register Number or Password", Toast.LENGTH_LONG).show();
@@ -101,7 +126,7 @@ CheckBox c;
                                 AuthFailureError {
                             Map<String, String> Params = new HashMap<>();
                             Params.put("regno", regno.getText().toString());
-Params.put("password",password.getText().toString());
+                            Params.put("password",password.getText().toString());
 
 
 

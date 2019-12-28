@@ -1,7 +1,11 @@
 package com.example.collegecommunication.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.collegecommunication.ChangePassword;
+import com.example.collegecommunication.Main6Activity;
 import com.example.collegecommunication.R;
 
 /**
@@ -44,26 +50,32 @@ public class PlaceholderFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main6, container, false);
-        View root1=inflater.inflate(R.layout.fragment_main7,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
+        View view = inflater.inflate(R.layout.fragment_main6, container, false);
+        setHasOptionsMenu(true);
+        return view;
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // TODO Auto-generated method stub
 
-        final TextView textView = root.findViewById(R.id.section_label);
-       // final TextView textView1 = root1.findViewById(R.id.section_label1);
+        inflater.inflate(R.menu.settings, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
-        pageViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-                if(s.equals("Notification"))
-                {
-                    Toast.makeText(getContext(),"hiiii",Toast.LENGTH_SHORT).show();
-                }
-                //textView1.setText("hi");
-            }
-        });
-        return root;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.passwordmenu:
+                Intent intent = new Intent(getContext(), ChangePassword.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
