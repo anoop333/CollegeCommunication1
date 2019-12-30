@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+public class splashscreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splashscreen);
         new Handler().postDelayed(new Runnable() {
 
 // Using handler with postDelayed called runnable run method
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void run() {
 
-                Intent i = new Intent(MainActivity.this,Main2Activity.class);
+                Intent i = new Intent(splashscreen.this, signup.class);
 
                 startActivity(i);
 

@@ -25,15 +25,15 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main2Activity extends AppCompatActivity {
-EditText regno,password,repassword,mobno,email;
+public class signup extends AppCompatActivity {
+EditText regno,password,repassword;
 Button register;
 TextView login;
 CheckBox ch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.signup);
         login=findViewById(R.id.textView3);
         regno=findViewById(R.id.editText);
         password=findViewById(R.id.editText2);
@@ -51,11 +51,12 @@ CheckBox ch;
                     ch.setText("Hide password");
 
                 }
-                else {
+                else
+                    {
                     password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     repassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     ch.setText("Show Password");
-                }
+                    }
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
@@ -64,26 +65,27 @@ CheckBox ch;
 
                                 if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()) || (repassword.getText().toString().isEmpty()))
                 {
-                    Toast.makeText(Main2Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
+                    Toast.makeText(signup.this, "Field is Empty", Toast.LENGTH_LONG).show();
                 }
 else if(!(password.getText().toString().equals(repassword.getText().toString())))
                                 {
-                                    Toast.makeText(Main2Activity.this,"Password Mismatch", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(signup.this,"Password Mismatch", Toast.LENGTH_LONG).show();
                                 }
-                 else {
+                 else
+                     {
 
                                     StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anoopsuvarnan1.000webhostapp.com/anannya.php",
                                             new Response.Listener<String>() {
                                                 @Override
                                                 public void onResponse(String response) {
-                                                    //Toast.makeText(Main2Activity.this, response, Toast.LENGTH_LONG).show();
+                                                    //Toast.makeText(signup.this, response, Toast.LENGTH_LONG).show();
 if (response.equals("success"))
 {
-    Intent intent=new Intent(Main2Activity.this,Main3Activity.class);
+    Intent intent=new Intent(signup.this, com.example.collegecommunication.login.class);
     startActivity(intent);
 }
 else {
-    Toast.makeText(Main2Activity.this, "Incorrect Register Number or Already Registered", Toast.LENGTH_LONG).show();
+    Toast.makeText(signup.this, "Incorrect Register Number or Already Registered", Toast.LENGTH_LONG).show();
 }
                                                 }
                                             },
@@ -108,7 +110,7 @@ else {
                                     };
 
 
-                        RequestQueue requestQueue = Volley.newRequestQueue(Main2Activity.this);
+                        RequestQueue requestQueue = Volley.newRequestQueue(signup.this);
 requestQueue.add(stringRequest);
 
 
@@ -122,7 +124,7 @@ requestQueue.add(stringRequest);
     login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main2Activity.this,Main3Activity.class);
+                Intent intent=new Intent(signup.this, com.example.collegecommunication.login.class);
                 startActivity(intent);
             }
         });

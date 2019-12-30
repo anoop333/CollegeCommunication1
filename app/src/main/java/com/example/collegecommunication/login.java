@@ -29,7 +29,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main3Activity extends AppCompatActivity {
+public class login extends AppCompatActivity {
 EditText regno,password;
 Button login;
 TextView forgotpwd,reg;
@@ -38,7 +38,7 @@ CheckBox c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.login);
         reg=findViewById(R.id.textView7);
         forgotpwd=findViewById(R.id.textView5);
         reg=findViewById(R.id.textView7);
@@ -73,7 +73,7 @@ CheckBox c;
 
                 if ((regno.getText().toString().isEmpty()) || (password.getText().toString().isEmpty()))
                 {
-                    Toast.makeText(Main3Activity.this, "Field is Empty", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.collegecommunication.login.this, "Field is Empty", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
@@ -81,7 +81,7 @@ CheckBox c;
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                  //  Toast.makeText(Main3Activity.this,response,Toast.LENGTH_SHORT).show();
+                                  //  Toast.makeText(login.this,response,Toast.LENGTH_SHORT).show();
                                     try {
                                         JSONArray jsonArray = new JSONArray(response);
                                         for (int i = 0; i < jsonArray.length(); i++) {
@@ -98,20 +98,23 @@ CheckBox c;
 
 
 
-                                  //  Toast.makeText(Main3Activity.this, response, Toast.LENGTH_LONG).show();
+                                  //  Toast.makeText(login.this, response, Toast.LENGTH_LONG).show();
                                     if (status.equals("1"))
                                     {
                                        //
-                                        // Toast.makeText(Main3Activity.this, "Id", Toast.LENGTH_LONG).show();
-                                        Intent in= new Intent(Main3Activity.this,Main6Activity.class);
+                                        // Toast.makeText(login.this, "Id", Toast.LENGTH_LONG).show();
+                                        Intent in= new Intent(com.example.collegecommunication.login.this, tab.class);
                                         startActivity(in);
                                     }
                                     else if(status.equals("2")) {
-                                        Toast.makeText(Main3Activity.this, "Admin", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(com.example.collegecommunication.login.this, "Admin", Toast.LENGTH_LONG).show();
+
+                                        Intent in= new Intent(login.this, post_activity.class);
+                                        startActivity(in);
 
                                     }
                                     else {
-                                        Toast.makeText(Main3Activity.this, "Incorrect Register Number or Password", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(com.example.collegecommunication.login.this, "Incorrect Register Number or Password", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             },
@@ -135,7 +138,7 @@ CheckBox c;
                         }
                     };
 
-                    RequestQueue requestQueue = Volley.newRequestQueue(Main3Activity.this);
+                    RequestQueue requestQueue = Volley.newRequestQueue(com.example.collegecommunication.login.this);
                     requestQueue.add(stringRequest);
                 }
             }
@@ -143,14 +146,14 @@ CheckBox c;
         forgotpwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main3Activity.this,Main5Activity.class);
+                Intent intent=new Intent(com.example.collegecommunication.login.this, forgotpassword.class);
                 startActivity(intent);
             }
         });
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Main3Activity.this,Main2Activity.class);
+                Intent intent=new Intent(com.example.collegecommunication.login.this, signup.class);
                 startActivity(intent);
             }
         });
